@@ -1,11 +1,15 @@
 
 export interface Row {
   id: string;
-  task: string;
-  assignee: string;
-  dueDate: string;
+  jobRequest: string;
+  submitted: string;
+  status: 'In-process' | 'Need to start' | 'Complete' | 'Blocked';
+  submitter: string;
+  url: string;
+  assigned: string;
   priority: 'Low' | 'Medium' | 'High';
-  status: 'Todo' | 'In Progress' | 'Completed';
+  dueDate: string;
+  estValue: string;
 }
 
 export interface Sheet {

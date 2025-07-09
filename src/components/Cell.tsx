@@ -61,7 +61,20 @@ export const Cell: React.FC<CellProps> = ({
     if (columnKey === 'status') {
       return <Tag value={value} type="status" />;
     }
-    return value;
+    if (columnKey === 'url' && value) {
+      return (
+        <a 
+          href={value} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 underline truncate"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {value}
+        </a>
+      );
+    }
+    return <span className="truncate">{value}</span>;
   };
 
   if (isEditing) {
@@ -73,14 +86,14 @@ export const Cell: React.FC<CellProps> = ({
         onChange={(e) => setInputValue(e.target.value)}
         onKeyDown={handleKeyDown}
         onBlur={handleBlur}
-        className="w-full h-full px-2 py-1 border-2 border-blue-500 outline-none"
+        className="w-full h-full px-3 py-2 border-2 border-blue-500 outline-none bg-white rounded"
       />
     );
   }
 
   return (
     <div
-      className="w-full h-full px-2 py-1 cursor-pointer hover:bg-gray-50 flex items-center"
+      className="w-full h-full px-3 py-2 cursor-pointer hover:bg-muted/50 flex items-center"
       onDoubleClick={handleDoubleClick}
     >
       {renderCellContent()}
