@@ -31,9 +31,9 @@ function App() {
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-green-500 rounded"></div>
               <span className="text-sm text-muted-foreground">Workspace</span>
-              <span className="text-sm text-muted-foreground">></span>
+              <span className="text-sm text-muted-foreground">{'>'}</span>
               <span className="text-sm text-muted-foreground">Folder 2</span>
-              <span className="text-sm text-muted-foreground">></span>
+              <span className="text-sm text-muted-foreground">{'>'}</span>
               <span className="text-sm font-medium">Spreadsheet 3</span>
             </div>
           </div>
