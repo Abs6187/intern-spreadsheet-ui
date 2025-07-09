@@ -31,9 +31,9 @@ function App() {
             <div className="flex items-center gap-2">
               <div className="w-6 h-6 bg-green-500 rounded"></div>
               <span className="text-sm text-muted-foreground">Workspace</span>
-              <span className="text-sm text-muted-foreground">{'>'}</span>
+              <span className="text-sm text-muted-foreground">{'>'}}</span>
               <span className="text-sm text-muted-foreground">Folder 2</span>
-              <span className="text-sm text-muted-foreground">{'>'}</span>
+              <span className="text-sm text-muted-foreground">{'>'}}</span>
               <span className="text-sm font-medium">Spreadsheet 3</span>
             </div>
           </div>
@@ -41,6 +41,17 @@ function App() {
             <span className="text-sm text-muted-foreground">John Doe</span>
             <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
           </div>
+        </div>
+        <div className="mt-2 text-xs text-muted-foreground">
+          Created by{' '}
+          <a 
+            href="https://www.linkedin.com/in/mayank-das-bairagi-18639525a/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
+            Mayank Das Bairagi
+          </a>
         </div>
       </header>
       
