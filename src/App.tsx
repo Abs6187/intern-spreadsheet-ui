@@ -1,27 +1,47 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+import { DataGrid } from './components/DataGrid';
+import { TabBar } from './components/TabBar';
+import { useSpreadsheet } from './hooks/useSpreadsheet';
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  const {
+    sheets,
+    activeSheetId,
+    activeSheet,
+    editingCell,
+    addSheet,
+    addRow,
+    startEdit,
+    saveEdit,
+    cancelEdit,
+    setActiveSheetId,
+  } = useSpreadsheet();
+
+  return (
+    <div className="h-screen flex flex-col">
+      <header className="bg-slate-800 text-white px-6 py-4">
+        <h1 className="text-xl font-semibold">Intern Spreadsheet</h1>
+      </header>
+      
+      <div className="flex-1 flex flex-col">
+        <DataGrid
+          rows={activeSheet?.rows || []}
+          editingCell={editingCell}
+          onCellEdit={startEdit}
+          onCellSave={saveEdit}
+          onCancelEdit={cancelEdit}
+          onAddRow={addRow}
+        />
+        
+        <TabBar
+          sheets={sheets}
+          activeSheetId={activeSheetId}
+          onSheetSelect={setActiveSheetId}
+          onAddSheet={addSheet}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default App;
