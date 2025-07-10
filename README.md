@@ -4,7 +4,8 @@ A modern spreadsheet application built with React and TypeScript.
 
 ---
 
-![App Screenshot](https://github.com/Abs6187/intern-spreadsheet-ui/raw/46fdbe67de34b78a896a5651c38978d3ea6e9439/Screenshot%202025-07-09%20233701.png)
+![App Screenshot](https://github.com/Abs6187/intern-spreadsheet-ui/raw/0284ad0d78ef1e1aa788b280857297a8cd1fc9f2/Screenshot%202025-07-09%20231510.png)
+
 
 ---
 
